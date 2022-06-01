@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{8596A409-7E63-4F92-8C9F-4402877388EE}|Default">
+  <MonoDevelop.Ide.ItemProperties.Project PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Project/Hoodie.cs">
+    <Files>
+      <File FileName="Project/Program.cs" Line="119" Column="1" />
+      <File FileName="Project/Catalogue.cs" />
+      <File FileName="Project/Hoodie.cs" Line="9" Column="41" />
+      <File FileName="Project/JumpRopes.cs" />
+      <File FileName="Project/IShop.cs" />
+      <File FileName="Project/CatalogueList.cs" Line="10" Column="19" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Project" expanded="True">
+            <Node name="Project" expanded="True">
+              <Node name="Hoodie.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
