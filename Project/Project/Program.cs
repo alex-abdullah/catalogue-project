@@ -1,76 +1,96 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 namespace Project
 {
-    /* TODO
-     * 
-     * using PEN & PAPER => draw up program flow for each selection
-     * consider how much refactoring you need to do once a -
-     * - working version of the program is available
-     * create a new file / class to store all shop static methods
-     */
-
-    class ShopMethods
-    {
-        public static void InitialWelcome()
-        {
-            Console.WriteLine("Welcome to Warehouse Simulator! {(^o^)}");
-            Console.WriteLine("");            
-        }
-
-        public static void OpeningMessage()
-        {
-            Console.WriteLine("Enter a number to proceed:");
-            Console.WriteLine("");
-            ShowOptions();
-        }
-
-        public static void ShowOptions()
-        {
-            Console.WriteLine("1 - Create new catalogue");
-            Console.WriteLine("2 - View existing catalogue");
-            Console.WriteLine("3 - Add product to catalogue");
-            Console.WriteLine("4 - Remove product from catalogue");
-            Console.WriteLine("5 - Remove catalogue");
-            Console.WriteLine("");            
-            Console.WriteLine("0 - Save & Exit");
-            Console.WriteLine("");
-            Console.WriteLine("");
-
-        }        
-    }
 
     class Program
     {
+    
         static void Main(string[] args)
         {
 
             ShopMethods.InitialWelcome();
             bool programActive = true;
 
+            Catalogue<Hoodie> catalogueHoodie;
+            Catalogue<JumpRopes> catalogueJumpRope;
+
+            Hoodie myHoodie = new Hoodie();
+
+            
+            
+
+
+            try
+            {                
+                catalogueHoodie = Catalogue<Hoodie>.LoadState("hoodie");
+                Console.WriteLine("Hoodie catalogue successfully loaded.\n");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("No save file found.\n");
+                Console.WriteLine(ex);
+                catalogueHoodie = new Catalogue<Hoodie>();
+                
+            }
+
+            try
+            {
+                catalogueJumpRope = Catalogue<JumpRopes>.LoadState("jumprope");
+                Console.WriteLine("Jump rope catalogue successfully loaded.\n");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("No save file found.\n");
+                catalogueJumpRope = new Catalogue<JumpRopes>();
+            }
+
+
             while (programActive)
             {
                 ShopMethods.OpeningMessage();
-                CatalogueList<Catalogue<Product>> jumpRopeCatalogueList = new CatalogueList<Catalogue<Product>>();
-                CatalogueList<Catalogue<Product>> hoodieCatalogueList = new CatalogueList<Catalogue<Product>>();
 
                 string userInput = Console.ReadLine();
-                if(userInput == "1")
-                {
-                    Console.WriteLine("What item catalogue do you want to create?");
-                    Console.WriteLine("");
-                    Console.WriteLine("1 - New hoodie catalogue");
-                    Console.WriteLine("2 - New jump rope catalogue");
 
+                if (userInput == "1")
+                {
+                    if (catalogueHoodie.CountItems() <= 0)
+                    {
+                        Console.WriteLine("Hoodie catalogue is empty");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{catalogueHoodie.CatName} \n");
+                        catalogueHoodie.ProductCatalogue.ForEach(Console.WriteLine);
+                        Console.WriteLine("");
+                    }
+
+
+                    if (catalogueJumpRope.CountItems() <= 0)
+                    {
+                        Console.WriteLine("Jump rope catalogue is empty");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{catalogueJumpRope.CatName} \n");
+                        catalogueJumpRope.ProductCatalogue.ForEach(Console.WriteLine);
+                        Console.WriteLine("");
+                    }
+
+                }
+
+                else if (userInput == "2")
+                {
+                    Console.WriteLine("What product do you want to create? \n");
+                    Console.WriteLine("1 - New hoodie");
+                    Console.WriteLine("2 - New jump rope \n");
                     string userSelection = Console.ReadLine();
 
                     if (userSelection == "1")
                     {
-                        Console.WriteLine("Enter catalogue name:");
-                        string catalogueName = Console.ReadLine();
-
-                        Catalogue<Product> catalogueHoodie = new Catalogue<Product>();
-
                         Console.WriteLine("Enter hoodie NAME:");
                         string hoodieName = Console.ReadLine();
 
@@ -84,25 +104,22 @@ namespace Project
                         Console.WriteLine("Enter hoodie SIZE");
                         string hoodieSize = Console.ReadLine();
 
-                        Hoodie hoodieOne = new Hoodie(catalogueName, double.Parse(hoodiePrice), hoodieColour, hoodieSize);
+
+                        Hoodie hoodieOne = new Hoodie(hoodieName, double.Parse(hoodiePrice), hoodieColour, hoodieSize);
 
                         catalogueHoodie.Add(hoodieOne);
 
-                        hoodieCatalogueList.Add(catalogueHoodie);
+                        Console.WriteLine($"{hoodieName} has been added! \n");
 
+                        Catalogue<Hoodie>.SaveState(catalogueHoodie, "hoodie");
+                        Console.WriteLine("");
 
-                        Console.WriteLine($"{hoodieName} has been added to {catalogueName}");
                     }
 
-                    if (userSelection == "2")
+                    else if (userSelection == "2")
                     {
-                        Console.WriteLine("Enter catalogue name:");
-                        string catalogueName = Console.ReadLine();
-
-                        Catalogue<Product> catalogueJumpRope = new Catalogue<Product>();
-
-                        Console.WriteLine("Enter rope NAME:");
-                        string ropeName = Console.ReadLine();
+                        Console.WriteLine("Enter rope COLOURWAY NAME:");
+                        string ropeColourway = Console.ReadLine();
 
                         Console.WriteLine("Enter rope PRICE:");
                         string ropePrice = Console.ReadLine();
@@ -112,25 +129,67 @@ namespace Project
                         string ropeLength = Console.ReadLine();
                         Int32.Parse(ropeLength);
 
-                        Console.WriteLine("Enter rope COLOURWAY NAME");
-                        string ropeColourway = Console.ReadLine();
-
-                        JumpRopes ropeOne = new JumpRopes(ropeName, double.Parse(ropePrice), Int32.Parse(ropeLength), ropeColourway);
+                        JumpRopes ropeOne = new JumpRopes(ropeColourway, double.Parse(ropePrice), Int32.Parse(ropeLength));
 
                         catalogueJumpRope.Add(ropeOne);
-                        jumpRopeCatalogueList.Add(catalogueJumpRope);
 
-                        Console.WriteLine($"{ropeName} has been added to {catalogueName}");
+                        Console.WriteLine($"{ropeColourway} has been added! \n");
 
+                        Catalogue<JumpRopes>.SaveState(catalogueJumpRope, "jumprope");
                     }
 
-                } if(userInput == "2")
+                }
+                else if(userInput == "3")
                 {
+                    Console.WriteLine("Which catalogue do you want\nto delete a product from? \n");
+                    Console.WriteLine("1 - Hoodie catalogue");
+                    Console.WriteLine("2 - Jumprope catalogue \n");
+                    string userSelection = Console.ReadLine();
+                    int result = Int32.Parse(userSelection);
+
+                    if (userSelection == "1")
+                    {
+                        Catalogue<Hoodie>.DeleteFromCatalogue(catalogueHoodie);
+
+                    }
+                    else if (userSelection == "2")
+                    {
+                        Catalogue<JumpRopes>.DeleteFromCatalogue(catalogueJumpRope);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter 1 or 2...");
+                    }
+                }
+
+                else if(userInput == "4")
+                {
+                    Console.WriteLine("Which catalogue do you want to clear? \n");
+                    Console.WriteLine("1 - Hoodie catalogue");
+                    Console.WriteLine("2 - Jumprope catalogue \n");
+                    string userSelection = Console.ReadLine();
+
+                    if (userSelection == "1")
+                    {
+                        catalogueHoodie.Empty();
+
+                    }
+                    else if (userSelection == "2")
+                    {
+                        catalogueJumpRope.Empty();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter 1 or 2...");
+                    }
 
                 }
+                else if(userInput == "0")
+                {
+                    programActive = false;
+                }
             }
-            
-
         }
     }
 }
+
