@@ -1,0 +1,13 @@
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/bin/Debug/netcoreapp3.1/Project.deps.json
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/bin/Debug/netcoreapp3.1/Project.runtimeconfig.json
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/bin/Debug/netcoreapp3.1/Project.runtimeconfig.dev.json
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/bin/Debug/netcoreapp3.1/Project.dll
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/bin/Debug/netcoreapp3.1/Project.pdb
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/obj/Debug/netcoreapp3.1/Project.csproj.AssemblyReference.cache
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/obj/Debug/netcoreapp3.1/Project.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/obj/Debug/netcoreapp3.1/Project.AssemblyInfoInputs.cache
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/obj/Debug/netcoreapp3.1/Project.AssemblyInfo.cs
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/obj/Debug/netcoreapp3.1/Project.csproj.CoreCompileInputs.cache
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/obj/Debug/netcoreapp3.1/Project.dll
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/obj/Debug/netcoreapp3.1/Project.pdb
+/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/obj/Debug/netcoreapp3.1/Project.genruntimeconfig.cache
