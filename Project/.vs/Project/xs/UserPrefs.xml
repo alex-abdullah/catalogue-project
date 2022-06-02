@@ -1,21 +1,34 @@
 ﻿<Properties StartupConfiguration="{8596A409-7E63-4F92-8C9F-4402877388EE}|Default">
   <MonoDevelop.Ide.ItemProperties.Project PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Project/Catalogue.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Project/Product.cs">
     <Files>
-      <File FileName="Project/Product.cs" Line="12" Column="35" />
-      <File FileName="Project/Hoodie.cs" Line="9" Column="41" />
-      <File FileName="Project/JumpRopes.cs" Line="7" Column="1" />
+      <File FileName="Project/Program.cs" Line="14" Column="45" />
+      <File FileName="Project/Product.cs" Line="32" Column="36" />
+      <File FileName="Project/Hoodie.cs" Line="9" Column="1" />
+      <File FileName="Project/JumpRopes.cs" Line="13" Column="13" />
       <File FileName="Project/ShopMethods.cs" Line="25" Column="35" />
       <File FileName="Project/IShop.cs" Line="1" Column="1" />
-      <File FileName="Project/Catalogue.cs" Line="106" Column="1" />
-      <File FileName="Project/Program.cs" Line="24" Column="30" NotebookId="1" />
+      <File FileName="Project/Catalogue.cs" Line="78" Column="14" />
+      <File FileName="TestProduct/UnitTest1.cs" Line="11" Column="16" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Project" expanded="True">
             <Node name="Project" expanded="True">
-              <Node name="Catalogue.cs" selected="True" />
+              <Node name="Product.cs" selected="True" />
+            </Node>
+            <Node name="TestProduct" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Project" expanded="True" selected="True">
+            <Node name="TestProduct" expanded="True">
+              <Node name="TestProduct" expanded="True">
+                <Node name="UnitTest1" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -25,12 +38,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/Program.cs" relfile="Project/Program.cs" line="22" column="1" />
-      <Breakpoint file="/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/Program.cs" relfile="Project/Program.cs" line="24" column="1" />
-      <Breakpoint file="/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/Program.cs" relfile="Project/Program.cs" line="29" column="1" />
-      <Breakpoint file="/Users/alexabdullah/Dropbox/Mac/Desktop/all-wooliesx-work/woolies-x/projects/catalogue-project/Project/Project/Program.cs" relfile="Project/Program.cs" line="44" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

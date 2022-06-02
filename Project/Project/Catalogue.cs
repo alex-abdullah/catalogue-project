@@ -20,20 +20,24 @@ namespace Project
 
         public void Add(T product)
         {
+            if (product == null)
+                throw new NullReferenceException("Please enter valid input");
             _productCatalogue.Add(product);
         }
 
         public void Remove(T product)
         {
+            if (product == null)
+                throw new NullReferenceException("Please enter valid input");
             _productCatalogue.Remove(product);
         }
 
         public void RemoveAtIndex(int i)
         {
             if (i < 0 || i >= _productCatalogue.Count)
-            {                
-                Console.WriteLine($"Index {i} is out of bounds - please select an item between 0 and {_productCatalogue.Count}");
-                return;
+            {
+                throw new Exception($"Index {i} is out of bounds - please select an item between 0 and {_productCatalogue.Count}");
+                
             }
             _productCatalogue.RemoveAt(i);
         }
@@ -49,11 +53,11 @@ namespace Project
                 return;
             }
 
-            Console.WriteLine($"There are {size} items in this catalogue. Which one would you like to remove?");
+            Console.WriteLine($"There are {size} item(s) in this catalogue. Which one would you like to remove?");
             for (int i = 0; i < size; i++)
             {
                 //TODO add a ToString virtual method for the product
-                Console.WriteLine($"\t- {i}");
+                Console.WriteLine($"\n{i} - item {i}\n");
             };
 
             string userSelection = Console.ReadLine();
@@ -74,9 +78,9 @@ namespace Project
         public double CalculateTotal()
         {
             double total = 0;
-            foreach (T x in _productCatalogue)
+            foreach (T x in _productCatalogue) 
             {
-                total += x.CalculateTax();
+                total += (x.Price * (1 + x.Tax));
             }
 
             return total;
@@ -119,6 +123,11 @@ namespace Project
             // 2nd error => after we added setters, hoodie/jumprope was unable
             // to be created due to no default constructor
             
+        }
+
+        public override string ToString()
+        {
+            return "Item";
         }
 
     }

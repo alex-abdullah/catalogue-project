@@ -11,18 +11,13 @@ namespace Project
     
         static void Main(string[] args)
         {
+            Product product = new Product();
 
             ShopMethods.InitialWelcome();
             bool programActive = true;
 
             Catalogue<Hoodie> catalogueHoodie;
-            Catalogue<JumpRopes> catalogueJumpRope;
-
-            Hoodie myHoodie = new Hoodie();
-
-            
-            
-
+            Catalogue<JumpRopes> catalogueJumpRope;          
 
             try
             {                
@@ -31,8 +26,7 @@ namespace Project
             }
             catch (Exception ex)
             {
-                Console.WriteLine("No save file found.\n");
-                Console.WriteLine(ex);
+                Console.WriteLine("No save file found.\n");                
                 catalogueHoodie = new Catalogue<Hoodie>();
                 
             }
@@ -59,10 +53,13 @@ namespace Project
                 {
                     if (catalogueHoodie.CountItems() <= 0)
                     {
-                        Console.WriteLine("Hoodie catalogue is empty");
+                        Console.WriteLine("HOODIE CATALOGUE");
+                        Console.WriteLine("Hoodie catalogue is empty\n");
+                        Console.WriteLine("");
                     }
                     else
                     {
+                        Console.WriteLine("HOODIE CATALOGUE");
                         Console.WriteLine($"{catalogueHoodie.CatName} \n");
                         catalogueHoodie.ProductCatalogue.ForEach(Console.WriteLine);
                         Console.WriteLine("");
@@ -71,10 +68,13 @@ namespace Project
 
                     if (catalogueJumpRope.CountItems() <= 0)
                     {
-                        Console.WriteLine("Jump rope catalogue is empty");
+                        Console.WriteLine("JUMP ROPE CATALOGUE");
+                        Console.WriteLine("Jump rope catalogue is empty\n");
+                        Console.WriteLine("");
                     }
                     else
                     {
+                        Console.WriteLine("JUMP ROPE CATALOGUE");
                         Console.WriteLine($"{catalogueJumpRope.CatName} \n");
                         catalogueJumpRope.ProductCatalogue.ForEach(Console.WriteLine);
                         Console.WriteLine("");
@@ -150,11 +150,13 @@ namespace Project
                     if (userSelection == "1")
                     {
                         Catalogue<Hoodie>.DeleteFromCatalogue(catalogueHoodie);
+                        Catalogue<Hoodie>.SaveState(catalogueHoodie, "hoodie");
 
                     }
                     else if (userSelection == "2")
                     {
                         Catalogue<JumpRopes>.DeleteFromCatalogue(catalogueJumpRope);
+                        Catalogue<JumpRopes>.SaveState(catalogueJumpRope, "jumprope");
                     }
                     else
                     {
@@ -172,15 +174,19 @@ namespace Project
                     if (userSelection == "1")
                     {
                         catalogueHoodie.Empty();
+                        Catalogue<Hoodie>.SaveState(catalogueHoodie, "hoodie");
+                        Console.WriteLine("Hoodie Catalogue is now empty\n");
 
                     }
                     else if (userSelection == "2")
                     {
                         catalogueJumpRope.Empty();
+                        Catalogue<JumpRopes>.SaveState(catalogueJumpRope, "jumprope");
+                        Console.WriteLine("Jumprope Catalogue is now empty\n");
                     }
                     else
                     {
-                        Console.WriteLine("Please enter 1 or 2...");
+                        Console.WriteLine("Please enter 1 or 2...\n");
                     }
 
                 }
