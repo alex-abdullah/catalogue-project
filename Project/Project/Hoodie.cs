@@ -21,6 +21,26 @@ namespace Project
 
         }
 
+        public static Catalogue<Hoodie> CatalogueGenerator()
+        {
+            Catalogue<Hoodie> catalogue;
+
+            try
+            {
+                catalogue = Catalogue<Hoodie>.LoadState("hoodie");
+                Console.WriteLine("Hoodie catalogue successfully loaded.\n");
+                return catalogue;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("No save file found.\n");
+                catalogue = new Catalogue<Hoodie>();
+                return catalogue;
+
+            }
+
+        }
+        
         
     }
 }

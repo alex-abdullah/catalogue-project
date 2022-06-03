@@ -17,5 +17,25 @@ namespace Project
         {
 
         }
+
+        public static Catalogue<JumpRopes> CatalogueGenerator()
+        {
+            Catalogue<JumpRopes> catalogue;
+
+            try
+            {
+                catalogue = Catalogue<JumpRopes>.LoadState("jumprope");
+                Console.WriteLine("Jump rope successfully loaded.\n");
+                return catalogue;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("No save file found.\n");
+                catalogue = new Catalogue<JumpRopes>();
+                return catalogue;
+
+            }
+
+        }
     }
 }
