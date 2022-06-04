@@ -3,6 +3,19 @@ namespace Project
 {
     public class SelectionTwo
     {
+
+        public static void UserSelectionTwo(Catalogue<Hoodie> catalogue, Catalogue<JumpRopes> catalogue1)
+        {
+            UserPrompts();
+            string userSelection = Console.ReadLine();
+
+            if (userSelection == "1")
+                OptionOne(catalogue);
+
+            if(userSelection == "2")
+                OptionTwo(catalogue1);
+        }
+
         public static void UserPrompts()
         {
             Console.WriteLine("What product do you want to create? \n");

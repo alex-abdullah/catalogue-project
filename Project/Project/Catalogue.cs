@@ -109,19 +109,8 @@ namespace Project
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), path + ".json");
             string jsonObject = File.ReadAllText(filePath);
 
-            //Console.WriteLine(jsonObject);
-
-            return JsonSerializer.Deserialize<Catalogue<T>>(jsonObject);
-
-            // to deserialise successfully, you require a default constructor
-            // for ALL classes, parents and children as well as getters and setters for each field
-
-            // technically you can deserialise without setters, BUT shit is gonna
-            // go super weird. So use setters
-
-            // 1st error => no setters on catalogues list member variables
-            // 2nd error => after we added setters, hoodie/jumprope was unable
-            // to be created due to no default constructor
+           
+            return JsonSerializer.Deserialize<Catalogue<T>>(jsonObject);            
             
         }
 
